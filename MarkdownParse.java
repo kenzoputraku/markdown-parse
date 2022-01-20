@@ -10,19 +10,24 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
+        
         while(currentIndex < markdown.length()) {
+            
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+            //System.out.println(currentIndex);
+            //System.out.println(markdown.charAt(currentIndex));
         }
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
+        //System.out.println(contents);
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
     }
