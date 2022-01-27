@@ -13,10 +13,18 @@ public class MarkdownParse {
         
         while(currentIndex < markdown.length()) {
             
+            
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
+            if(closeParen == -1){
+                return toReturn;
+            }
+            if(markdown.charAt(nextOpenBracket - 1) == '!') { 
+                currentIndex = closeParen + 1; 
+                continue;
+            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             //System.out.println(currentIndex);
@@ -32,3 +40,12 @@ public class MarkdownParse {
         System.out.println(links);
     }
 }
+
+
+
+//test file 4
+/*Exception in thread "main" java.lang.StringIndexOutOfBoundsException: begin 22, end -1, length 36
+        at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4601)
+        at java.base/java.lang.String.substring(String.java:2704)
+        at MarkdownParse.getLinks(MarkdownParse.java:25)
+        at MarkdownParse.main(MarkdownParse.java:36)*/
