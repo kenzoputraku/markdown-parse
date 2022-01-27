@@ -41,11 +41,3 @@ public class MarkdownParse {
     }
 }
 
-
-
-//test file 4
-/*Exception in thread "main" java.lang.StringIndexOutOfBoundsException: begin 22, end -1, length 36
-        at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4601)
-        at java.base/java.lang.String.substring(String.java:2704)
-        at MarkdownParse.getLinks(MarkdownParse.java:25)
-        at MarkdownParse.main(MarkdownParse.java:36)*/
