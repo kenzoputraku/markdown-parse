@@ -21,10 +21,17 @@ public class MarkdownParse {
             if(closeParen == -1){
                 return toReturn;
             }  
+            
             if(markdown.charAt(nextOpenBracket - 1) == '!') { 
                 currentIndex = closeParen + 1; 
                 continue;
             }
+            
+            if(markdown.charAt(openParen + 1)== '('){
+                closeParen = markdown.lastIndexOf(")");
+            }
+            
+            
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             //System.out.println(currentIndex);
