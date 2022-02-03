@@ -42,6 +42,6 @@ public class MarkdownParseTest {
         Path fileName3 = Path.of("doubleSquareBracket.md");
 	    String contents3 = Files.readString(fileName3);
         ArrayList<String> links3 = MarkdownParse.getLinks(contents3);
-        assertEquals(List.of("www.google.com"), links3);
+        assertEquals(List.of(), links3);
     }
 }

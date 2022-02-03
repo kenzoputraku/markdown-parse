@@ -26,7 +26,9 @@ public class MarkdownParse {
                 currentIndex = closeParen + 1; 
                 continue;
             }
-            
+            if(openParen == -1){
+                return toReturn;
+            }
             if(markdown.charAt(openParen + 1)== '('){
                 closeParen = markdown.lastIndexOf(")");
             }
