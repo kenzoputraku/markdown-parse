@@ -39,7 +39,7 @@ public class MarkdownParseTest {
 
     @Test
     public void anotherFailureInducingInput() throws IOException{
-        Path fileName3 = Path.of("doubleSquareBracket.md");
+        Path fileName3 = Path.of("noOpenParen.md");
 	    String contents3 = Files.readString(fileName3);
         ArrayList<String> links3 = MarkdownParse.getLinks(contents3);
         assertEquals(List.of(), links3);
