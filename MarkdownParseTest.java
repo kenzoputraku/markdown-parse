@@ -5,7 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-
+//javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java
+//java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest
 public class MarkdownParseTest {
     @Test
     public void addition(){
@@ -34,5 +35,13 @@ public class MarkdownParseTest {
     @Test
     public void failingTest(){
         assertEquals(5,2+3);
+    }
+
+    @Test
+    public void anotherFailureInducingInput() throws IOException{
+        Path fileName3 = Path.of("doubleSquareBracket.md");
+	    String contents3 = Files.readString(fileName3);
+        ArrayList<String> links3 = MarkdownParse.getLinks(contents3);
+        assertEquals(List.of("www.google.com"), links3);
     }
 }
