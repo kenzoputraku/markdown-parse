@@ -55,6 +55,7 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
             // System.out.println("Value of current index after loop: " + currentIndex);
         }
+        System.out.println("test change");
         return toReturn;
     }
     public static void main(String[] args) throws IOException {

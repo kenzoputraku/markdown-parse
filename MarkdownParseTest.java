@@ -92,5 +92,6 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         assertEquals(linkTester, links);
+        System.out.println("test change 2");
     }
 }
