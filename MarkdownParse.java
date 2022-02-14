@@ -18,20 +18,30 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
+            
             if(closeParen == -1){
                 return toReturn;
             }  
             
             if(markdown.charAt(nextOpenBracket - 1) == '!') { 
+
+                
                 currentIndex = closeParen + 1; 
                 continue;
             }
             if(openParen == -1){
+
                 return toReturn;
             }
+            /*
             if(markdown.charAt(openParen + 1)== '('){
                 closeParen = markdown.lastIndexOf(")");
+
             }
+            */
+            
+            
+            
             
             
             toReturn.add(markdown.substring(openParen + 1, closeParen));
