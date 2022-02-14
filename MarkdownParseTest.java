@@ -31,7 +31,7 @@ public class MarkdownParseTest {
         ArrayList<String> links3 = MarkdownParse.getLinks(contents3);
         assertEquals(List.of("google.com"), links3);
 
-        Path fileName4 = Path.of("image.md");
+        Path fileName4 = Path.of("doubleParenthesis.md");
 	    String contents4 = Files.readString(fileName4);
         ArrayList<String> links4 = MarkdownParse.getLinks(contents4);
         assertEquals(List.of("(google.com)"), links4);

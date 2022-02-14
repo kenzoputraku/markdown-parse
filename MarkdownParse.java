@@ -33,12 +33,12 @@ public class MarkdownParse {
 
                 return toReturn;
             }
-            /*
+            
             if(markdown.charAt(openParen + 1)== '('){
                 closeParen = markdown.lastIndexOf(")");
 
             }
-            */
+            
             
             
             
