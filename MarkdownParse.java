@@ -9,14 +9,21 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
+<<<<<<< HEAD
         int pastCloseParen = 0;
+=======
+        
+>>>>>>> 1badd88badaa58297032da7b48d44fe1229a43a7
         while(currentIndex < markdown.length()) {
+            
+            
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
 
             // System.out.println("Value of current index before loop: " + currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
+<<<<<<< HEAD
             //Check link format
             Boolean validFormat = false;
             if(pastCloseParen == closeParen || nextOpenBracket < 0 || openParen < 0 || closeParen < 0) {
@@ -54,6 +61,38 @@ public class MarkdownParse {
             }
             currentIndex = closeParen + 1;
             // System.out.println("Value of current index after loop: " + currentIndex);
+=======
+            
+            if(closeParen == -1){
+                return toReturn;
+            }  
+            
+            if(markdown.charAt(nextOpenBracket - 1) == '!') { 
+
+                
+                currentIndex = closeParen + 1; 
+                continue;
+            }
+            if(openParen == -1){
+
+                return toReturn;
+            }
+            
+            if(markdown.charAt(openParen + 1)== '('){
+                closeParen = markdown.lastIndexOf(")");
+
+            }
+            
+            
+            
+            
+            
+            
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            currentIndex = closeParen + 1;
+            //System.out.println(currentIndex);
+            //System.out.println(markdown.charAt(currentIndex));
+>>>>>>> 1badd88badaa58297032da7b48d44fe1229a43a7
         }
         System.out.println("test change");
         return toReturn;
@@ -61,7 +100,9 @@ public class MarkdownParse {
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
+        //System.out.println(contents);
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
     }
 }
+
