@@ -9,11 +9,8 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
-<<<<<<< HEAD
         int pastCloseParen = 0;
-=======
         
->>>>>>> 1badd88badaa58297032da7b48d44fe1229a43a7
         while(currentIndex < markdown.length()) {
             
             
@@ -23,7 +20,6 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-<<<<<<< HEAD
             //Check link format
             Boolean validFormat = false;
             if(pastCloseParen == closeParen || nextOpenBracket < 0 || openParen < 0 || closeParen < 0) {
@@ -61,7 +57,6 @@ public class MarkdownParse {
             }
             currentIndex = closeParen + 1;
             // System.out.println("Value of current index after loop: " + currentIndex);
-=======
             
             if(closeParen == -1){
                 return toReturn;
@@ -92,7 +87,6 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
             //System.out.println(currentIndex);
             //System.out.println(markdown.charAt(currentIndex));
->>>>>>> 1badd88badaa58297032da7b48d44fe1229a43a7
         }
         System.out.println("test change");
         return toReturn;

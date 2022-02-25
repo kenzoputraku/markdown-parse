@@ -1,5 +1,2 @@
 java -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:. MarkdownParse $1
-<<<<<<< HEAD
-=======
 echo $1
->>>>>>> 1badd88badaa58297032da7b48d44fe1229a43a7
