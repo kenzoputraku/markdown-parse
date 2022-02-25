@@ -28,28 +28,28 @@ public class MarkdownParseTest {
         assertEquals(linkTester, links);
     }
 
-    @Test
-    public void testGetLinks2() throws IOException{
-        ArrayList<String> linkTester = new ArrayList<>();
-        linkTester.add("https://something.com");
-        linkTester.add("https://something.com");
+    // @Test
+    // public void testGetLinks2() throws IOException{
+    //     ArrayList<String> linkTester = new ArrayList<>();
+    //     linkTester.add("https://something.com");
+    //     linkTester.add("https://something.com");
 
-        Path fileName = Path.of("test-file2.md");
-	    String contents = Files.readString(fileName);
-        ArrayList<String> links = MarkdownParse.getLinks(contents);
-        assertEquals(linkTester, links);
-    }
+    //     Path fileName = Path.of("test-file2.md");
+	//     String contents = Files.readString(fileName);
+    //     ArrayList<String> links = MarkdownParse.getLinks(contents);
+    //     assertEquals(linkTester, links);
+    // }
 
-    @Test
-    public void testGetLinks3() throws IOException{
-        ArrayList<String> linkTester = new ArrayList<>();
-        linkTester.add("https://youtube.com");
+    // @Test
+    // public void testGetLinks3() throws IOException{
+    //     ArrayList<String> linkTester = new ArrayList<>();
+    //     linkTester.add("https://youtube.com");
 
-        Path fileName = Path.of("test-file3.md");
-	    String contents = Files.readString(fileName);
-        ArrayList<String> links = MarkdownParse.getLinks(contents);
-        assertEquals(linkTester, links);
-    }
+    //     Path fileName = Path.of("test-file3.md");
+	//     String contents = Files.readString(fileName);
+    //     ArrayList<String> links = MarkdownParse.getLinks(contents);
+    //     assertEquals(linkTester, links);
+    // }
 
     @Test
     public void testGetLinks4() throws IOException{
@@ -72,26 +72,63 @@ public class MarkdownParseTest {
         assertEquals(linkTester, links);
     }
 
-    @Test
-    public void testGetLinks6() throws IOException{
-        ArrayList<String> linkTester = new ArrayList<>();
-        linkTester.add("something.com");
+    // @Test
+    // public void testGetLinks6() throws IOException{
+    //     ArrayList<String> linkTester = new ArrayList<>();
+    //     linkTester.add("something.com");
 
-        Path fileName = Path.of("test-file6.md");
+    //     Path fileName = Path.of("test-file6.md");
+	//     String contents = Files.readString(fileName);
+    //     ArrayList<String> links = MarkdownParse.getLinks(contents);
+    //     assertEquals(linkTester, links);
+    // }
+
+    // @Test
+    // public void testGetLinks7() throws IOException{
+    //     ArrayList<String> linkTester = new ArrayList<>();
+    //     //linkTester.add("something.com");
+
+    //     Path fileName = Path.of("test-file7.md");
+	//     String contents = Files.readString(fileName);
+    //     ArrayList<String> links = MarkdownParse.getLinks(contents);
+    //     assertEquals(linkTester, links);
+    //     System.out.println("test change 2");
+    // }
+
+    @Test
+    public void testSnippet1() throws IOException{
+        ArrayList<String> linkTester = new ArrayList<>();
+        linkTester.add("`google.com");
+        linkTester.add("google.com");
+        linkTester.add("ucsd.edu");
+
+        Path fileName = Path.of("snippet1.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         assertEquals(linkTester, links);
     }
-
     @Test
-    public void testGetLinks7() throws IOException{
+    public void testSnippet2() throws IOException{
         ArrayList<String> linkTester = new ArrayList<>();
-        //linkTester.add("something.com");
+        linkTester.add("a.com");
+        linkTester.add("a.com(())");
+        linkTester.add("example.com");
 
-        Path fileName = Path.of("test-file7.md");
+        Path fileName = Path.of("snippet2.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         assertEquals(linkTester, links);
-        System.out.println("test change 2");
+
+    }
+    @Test
+    public void testSnippet3() throws IOException{
+        ArrayList<String> linkTester = new ArrayList<>();
+        linkTester.add("https://ucsd-cse15l-w22.github.io/");
+
+        Path fileName = Path.of("snippet3.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertEquals(linkTester, links);
+
     }
 }
